@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    F Object
+  
+ | Rocket MQ使用文档</title>
+
+
+
+<link rel="stylesheet" href="/docs/rocketmq/book.min.b7d5ee4f671b06dde5fd61ab409a54048ba7759e99fed39ac32a7be45d4d92cd.css">
+
+
+<link rel="icon" href="/docs/rocketmq/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="http://jaswine.com/docs/rocketmq">Rocket MQ使用文档</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2frocketmq\2f docs\2f class\2f f_object\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><strong><em>基础</em></strong>
+
+<ul>
+<li><a href="/docs/rocketmq/docs/jmm/install/">安装</a></li>
+<li><a href="/docs/rocketmq/docs/jmm/hb/">Happens-before</a></li>
+</ul></li>
+<li><strong><em>垃圾回收</em></strong>
+
+<ul>
+<li><a href="/docs/rocketmq/docs/gc/dead/">判断对象是否死亡</a></li>
+<li><a href="/docs/rocketmq/docs/gc/algo_collect/">垃圾回收算法</a></li>
+<li><a href="/docs/rocketmq/docs/gc/jvm_gc/">JVM垃圾收集器</a></li>
+</ul></li>
+<li><strong><em>类的那些事</em></strong>
+
+<ul>
+<li><a href="/docs/rocketmq/docs/class/f_class/">类文件</a></li>
+<li><a href="/docs/rocketmq/docs/class/classload/">类加载</a></li>
+<li><a href="/docs/rocketmq/docs/class/f_object/">对象及其生命周期</a></li>
+</ul></li>
+<li><strong><em>常用JVM参数</em></strong>
+
+<ul>
+<li><a href="#">内存参数</a></li>
+<li><a href="#">GC参数</a></li>
+</ul></li>
+<li><strong><em>JVM工具</em></strong>
+
+<ul>
+<li><a href="#">jps:查看进程状况</a></li>
+<li><a href="#">jstack:进程堆栈信息</a></li>
+<li><a href="#">jmap:内存映射工具</a></li>
+<li><a href="#">jhat:</a></li>
+<li><a href="#">jstat:虚拟机统计信息监视工具</a></li>
+<li><a href="/docs/rocketmq/docs/tools/jconsole/">JConsole:实时监视</a></li>
+<li><a href="/docs/rocketmq/docs/tools/jconsole/">jProfile:实时监视</a></li>
+<li><a href="/docs/rocketmq/docs/tools/jconsole/">MAT:实时监视</a></li>
+</ul></li>
+<li><strong><em>JVM故障&amp;调优</em></strong>
+
+<ul>
+<li><a href="#">OOM错误</a>
+<br /></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/docs/rocketmq/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    F Object
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="对象及其声明周期">对象及其声明周期</h1>
+
+<p>对象是类的一个具体实例。</p>
+
+<h2 id="对象的数据结构">对象的数据结构</h2>
+
+<p><code>Java</code>对象存放在堆内存上，对象有固定的数据格式，分为3个部分:</p>
+
+<ul>
+<li>对象头(Header)</li>
+<li>实例数据(Instance Data)</li>
+<li>对齐填充(Padding)</li>
+</ul>
+
+<p><strong><span style="color:red">对象头</span></strong>存放对象的以下信息(也称为<code>Mark Word</code>):</p>
+
+<ul>
+<li>HashCode</li>
+<li>GC分代年龄</li>
+<li>锁状态标志</li>
+<li>线程持有的的锁</li>
+<li>偏向线程ID</li>
+<li>偏向时间戳</li>
+<li></li>
+</ul>
+
+<p><strong><span style="color:red">实例数据</span></strong>是对象真正存放的有效信息，以下信息:</p>
+
+<ul>
+<li>定义的各种字段内容</li>
+<li>继承父类的信息</li>
+</ul>
+
+<p><strong><span style="color:red">对齐填充</span></strong>仅仅起着占位符的作用，因为VM的内存管理要求对象的其实地址必须是8字节的整数倍(也就是说对象是8字节的整数倍)。</p>
+
+<h2 id="对象的生命周期">对象的生命周期</h2>
+
+<h3 id="对象的创建">对象的创建</h3>
+
+<h3 id="对象的调用">对象的调用</h3>
+
+<h3 id="对象的回收">对象的回收</h3>
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#对象及其声明周期">对象及其声明周期</a>
+<ul>
+<li><a href="#对象的数据结构">对象的数据结构</a></li>
+<li><a href="#对象的生命周期">对象的生命周期</a>
+<ul>
+<li><a href="#对象的创建">对象的创建</a></li>
+<li><a href="#对象的调用">对象的调用</a></li>
+<li><a href="#对象的回收">对象的回收</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/class/classload/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/class/f_class/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/class/f_object/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/gc/algo_collect/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/gc/dead/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/gc/jvm_gc/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/jmm/hb/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/jmm/install/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/params/gc/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/params/memory/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/tools/jconsole/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/docs/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/</loc>
+  </url>
+  
+  <url>
+    <loc>http://jaswine.com/docs/rocketmq/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

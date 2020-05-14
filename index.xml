@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java虚拟机Doc on Rocket MQ使用文档</title>
+    <link>http://jaswine.com/docs/rocketmq/</link>
+    <description>Recent content in Java虚拟机Doc on Rocket MQ使用文档</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://jaswine.com/docs/rocketmq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/class/classload/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/class/classload/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/class/f_class/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/class/f_class/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/class/f_object/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/class/f_object/</guid>
+      <description> 对象及其声明周期 对象是类的一个具体实例。
+对象的数据结构 Java对象存放在堆内存上，对象有固定的数据格式，分为3个部分:
+ 对象头(Header) 实例数据(Instance Data) 对齐填充(Padding)  对象头存放对象的以下信息(也称为Mark Word):
+ HashCode GC分代年龄 锁状态标志 线程持有的的锁 偏向线程ID 偏向时间戳   实例数据是对象真正存放的有效信息，以下信息:
+ 定义的各种字段内容 继承父类的信息  对齐填充仅仅起着占位符的作用，因为VM的内存管理要求对象的其实地址必须是8字节的整数倍(也就是说对象是8字节的整数倍)。
+对象的生命周期 对象的创建 对象的调用 对象的回收 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/gc/algo_collect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/gc/algo_collect/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/gc/dead/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/gc/dead/</guid>
+      <description>判断对象是否死亡 Java创建了对象，到最后对象的死亡，最后被GC完成一个完整的生命周期。JVM是如何判断对象是否可以被GC？</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/gc/jvm_gc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/gc/jvm_gc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/jmm/hb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/jmm/hb/</guid>
+      <description> Happen-before模型  🔗为什么多线程并发不安全 &amp;ndash; Jaswine
+ Java引入线程来利用现代多处理器的计算能力，但是同时也带来了线程安全的问题，Java内存模型(JMM)解决了线程之间操作可见性的问题。
+happen-before原则  单线程happen-before原则：在同一个线程中，书写在前面的操作happen-before后面的操作。 锁的happen-before原则：同一个锁的unlock操作happen-before此锁的lock操作。 volatile的happen-before原则：对一个volatile变量的写操作happen-before对此变量的任意操作(当然也包括写操作了)。 happen-before的传递性原则：如果A操作 happen-before B操作，B操作happen-before C操作，那么A操作happen-before C操作。 线程启动的happen-before原则：同一个线程的start方法happen-before此线程的其它方法。 线程中断的happen-before原则：对线程interrupt方法的调用happen-before被中断线程的检测到中断发送的代码。 线程终结的happen-before原则：线程中的所有操作都happen-before线程的终止检测。 对象创建的happen-before原则：一个对象的初始化完成先于他的finalize方法调用。  实现原理 单线程happen-before原则 Java代码在编译的时候会发生重排序的操作，在CPU执行代码的时候也会发生重排序的情况。
+int a = 10; //1 int b = 1; //2 int c = a + b; //3  如上代码如果3发生在2之前就会有问题，因为b还没有声明。但是2发生在1之前就没有问题。happen-before归为两种情况
+ 1.会改变程序结果的重排序，Java内存模型要求编译器和处理器禁止这种重排序。
+2.不会改成程序结果的重排序，Java内存模型不强制要求。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/jmm/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/jmm/install/</guid>
+      <description> Rocket MQ安装 二进制包方式 # 下载代码 wget https://mirror.bit.edu.cn/apache/rocketmq/4.7.0/rocketmq-all-4.7.0-bin-release.zip # 解压包 unzip rocketmq-all-4.7.0-bin-release.zip # 运行服务 cd rocketmq-all-4.7.0-bin-release nohup sh bin/mqnamesrv &amp;amp; # 查看是否启动成功 cat nohup.out # 启动Broker nohup sh bin/mqbroker -n localhost:9876 &amp;amp; # 查看是否启动OK tail -f ~/logs/rocketmqlogs/broker.log  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/params/gc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/params/gc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/params/memory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/params/memory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://jaswine.com/docs/rocketmq/docs/tools/jconsole/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jaswine.com/docs/rocketmq/docs/tools/jconsole/</guid>
+      <description> 使用JConsole查看JVM进程 Jconsole可以实时的查看JVM进程的内存，线程，类加载的情况，在调优和排错的情况下非常的好用。
+1.连接 连接到JVM进程中，分为本地进程和远程连接。远程我们可以连接服务器上跑的程序。
+ 本地连接   远程连接  远程连接需要开启连接的端口，因为JConsole是通过jmx同JVM进程交互的，所以要开启，开启方法如下：
+// 主机名(远程电脑的ip) -Djava.rmi.server.hostname=192.168.44.120 //监控的端口号 -Dcom.sun.management.jmxremote.port=1099 //关闭认证 -Dcom.sun.management.jmxremote.authenticate=false // 关闭SSL -Dcom.sun.management.jmxremote.ssl=false  2.查看 </description>
+    </item>
+    
+  </channel>
+</rss>
